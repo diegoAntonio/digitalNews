@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north">
+			<h1>Cadastro de Usuarios</h1>
+		</p:layoutUnit>
+		
+		<p:layoutUnit position="center">
+				<h2>Digite seu login/senha para efetuar seu cadastro</h2>
+				
+				<h:form>
+				
+				<p:panelGrid columns="3" >
+					<p:outputLabel senha="login"  value="Login: ">
+						<p:inputText id="login"  value="#{userB.user.login}" required="true" />
+					</p:outputLabel>
+					
+					<p:outputLabel for="senha" value="Senha: ">
+						<p:password id="senha" value="#{userB.user.senha}" required="true" />
+					</p:outputLabel>
+					
+					<p:commandButton action="#{userB.cadastrarUsuario()}" value="Cadastrar"/>
+				</p:panelGrid>
+				
+				</h:form>
+		</p:layoutUnit>
+		
+		
+		<p:layoutUnit position="south">
+			<h:form id="cadastroForm">
+				<h:commandLink action="home" value="voltar ao login"/>
+			</h:form>
+		</p:layoutUnit>
+	
+	</p:layout>
+
+</body> 
+</html>

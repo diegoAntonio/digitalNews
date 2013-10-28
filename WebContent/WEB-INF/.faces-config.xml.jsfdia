@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#cadastroUsuario.xhtml"
+  PATH="/cadastroUsuario.xhtml" SHAPE="32,144,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#cadastroUsuario.xhtml:0" NAME="item"
+   PATH="/cadastroUsuario.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="sucesso:#{userB.cadastrarUsuario()}:#sucesso.xhtml"
+    NAME="output" PATH="/sucesso.xhtml" TARGET="rules:#sucesso.xhtml"
+    TITLE="#{userB.cadastrarUsuario()}:sucesso" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="falha:#{userB.cadastrarUsuario()}:#falha.xhtml" NAME="output1"
+    PATH="/falha.xhtml" TARGET="rules:#falha.xhtml"
+    TITLE="#{userB.cadastrarUsuario()}:falha" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#sucesso.xhtml" PATH="/sucesso.xhtml"
+  SHAPE="208,88,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#falha.xhtml" PATH="/falha.xhtml"
+  SHAPE="184,264,50,25" model-entity="JSFProcessGroup"/>
+</PROCESS>

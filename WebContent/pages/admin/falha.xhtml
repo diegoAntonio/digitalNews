@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north">
+			<h1>Erro</h1>
+			
+		</p:layoutUnit>
+		
+		<p:layoutUnit position="center">
+			<p>Aconteceu um erro no seu cadastro,tente novamente</p>
+		</p:layoutUnit>
+		
+		<p:layoutUnit position="south">
+			<h:form id="cadastroForm">
+				<h:commandLink action="home" value="voltar ao login"/>
+			</h:form>
+		</p:layoutUnit>
+	</p:layout>
+</body> 
+</html>
