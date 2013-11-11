@@ -4,13 +4,24 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
+/**
+ * @author Diego
+ * Classe com metodos estaticos que cria a primeira conexao com o banco
+ * para quem quiser utilizar solicitar a ela.
+ */
 public class DAO {
-	private static Connection con;
+	private static Connection con;//variavel que representa a conexao com o banco.
 	
 	static{
 		iniciar();
 	}
 	
+	
+	/**
+	 * Metodo que inicia a conexao com o banco
+	 * via JDBC.
+	 */
 	public static void iniciar(){
 		String stringDeConexao = "jdbc:mysql://localhost/";
 		String banco = "projetoweb3";
@@ -29,10 +40,21 @@ public class DAO {
 		}
 	}
 	
+	
+	/**
+	 * @return con
+	 * 
+	 * Metodo que passa a conexao a qualquer classe DAO
+	 * que precise se conectar ao banco.
+	 */
 	public static Connection getConnection(){
 			return con;
 	}
 	
+	
+	/**
+	 * Metodo que fecha a conexao com o banco
+	 */
 	public static void fecharConnection(){
 		try {
 			con.close();

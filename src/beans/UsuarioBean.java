@@ -6,19 +6,33 @@ import fachadas.FachadaUsuario;
 import model.Usuario;
 
 
+/**
+ * @author Diego
+ *
+ * Managed Bean que realiza o processo de cadastro de um usuário.
+ * Ele Recebe parametros de uma página e insere de acordo com o  que foi passado e chama 
+ * a fachada que insere os dados no banco.
+ * 
+ */
 @ManagedBean(name="userB")
 public class UsuarioBean {
-	private Usuario user;
-	private FachadaUsuario f;
+	private Usuario user;//usuario que representa o usuario do sistema.
+	private FachadaUsuario f;//fachada que irá inserir os dados no banco
 	
 	public UsuarioBean() {
 		super();
 		this.user = new Usuario();
 		this. f = FachadaUsuario.getInstance();
-		System.out.println("fim do construtor");
 	}
 	
 	
+	/**
+	 * Método que inicia o processo de cadastro de um usuario
+	 * no sistema.Faz as devidas validações e passa os dados
+	 * para a camada inferior.
+	 * 
+	 * @return resultado
+	 */
 	public String cadastrarUsuario(){
 			String resultado = "";
 			
@@ -34,13 +48,6 @@ public class UsuarioBean {
 			}
 			
 			return resultado;
-	}
-	
-	
-	public String logar(){
-			String retorno ="sucesso";
-			
-			return retorno;
 	}
 	
 

@@ -6,41 +6,45 @@
       xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
-<title>Digital News- A sua Melhor fonte de notícias</title>
+<title><h:outputText value="#{global['titulo.home']}" /> </title>
 </h:head> 
 <body> 
 	<p:layout fullPage="true">
 		<!-- Topo Espaço para a logo-->
 		
 		<p:layoutUnit position="north">
-			<h1>Bem vindo ao Digital News</h1>
+		<h1><h:outputText value="#{global['bem.vindo']}" /> </h1>
 		</p:layoutUnit>
 		
 		<!-- Meio,espaço para o site -->
 		
 		<p:layoutUnit position="center">
-		<p>Para Começar,Faça seu login ou Efetue seu cadastro</p>
-		<h:form>
-			<p:panelGrid columns="3" id="formLog" >
+		<p><h:outputText value="#{global['subtitulo.login']}: " /></p>
+		<h:form id="formLogin" prependId="false">
+			<p:panelGrid columns="2" id="formLog" >
 				
-				<p:outputLabel for="login" value="Login: ">
-					<p:inputText id="login" value="#{userB.user.login}" required="true"/>
-				</p:outputLabel>
+				<p:outputLabel for="login" value="#{global['login']}: " />
+					<p:inputText id="login" value="#{LoginMB.user.login}" />
 				
-				<p:outputLabel for="senha" value="Senha: ">
-					<p:password id="senha"  value="#{userB.user.senha}" required="true"/>
-				</p:outputLabel>
-				<p:commandButton action="#{userB.logar()}" value="Logar" />
+				<p:outputLabel for="senha" value="#{global['senha']} "/>
+					<p:password id="senha"  value="#{LoginMB.user.senha}" />
+						
+				<p:commandButton action="#{LoginMB.logarUsuario()}" value="#{global['botao.logar']}" >
+					<f:ajax execute="@form"  render="@all" />
+				</p:commandButton>
+					<h:column/>
 			</p:panelGrid>
-			
-			
+			<h:messages id="msg" globalOnly="true"  />
 		</h:form>
+		<h:outputText value="#{global['campos.obrigatorios']}" />
 		
-	</p:layoutUnit>
+		
+		
+		</p:layoutUnit>
 	
 	<p:layoutUnit position="south">
 		<h:form id="cadastroForm">
-			<h:commandLink action="cadastroUsuario" value="Ainda não é Cadastrado?"/>
+			<h:commandLink action="cadastroUsuario" value="#{global['nao.cadastrado.link']}"/>
 		</h:form>
 	</p:layoutUnit>
 	

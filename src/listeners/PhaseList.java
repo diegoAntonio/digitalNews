@@ -5,6 +5,13 @@ import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 
 
+
+/**
+ * @author Diego
+ * PhaseListener que funciona como uma ajuda para debugar problemas no sistema,
+ * ele apenas retorna a fase do ciclo de vida do JSF onde a requisição se encontra.
+ * Tudo o que faz é imprimir o id da fase onde ele se encontra.
+ */
 public class PhaseList implements PhaseListener {
 
 	/**

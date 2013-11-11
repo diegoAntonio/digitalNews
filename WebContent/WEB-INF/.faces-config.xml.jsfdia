@@ -14,8 +14,45 @@
     TITLE="#{userB.cadastrarUsuario()}:falha" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#*" PATH="/*" SHAPE="32,385,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:0" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="loginP::#home.xhtml" NAME="output"
+    PATH="/home.xhtml" TARGET="rules:#home.xhtml" TITLE="loginP" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="negado::#acessoNegado.xhtml" NAME="output1"
+    PATH="/acessoNegado.xhtml" TARGET="rules:#acessoNegado.xhtml"
+    TITLE="negado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#home.xhtml" PATH="/home.xhtml"
+  SHAPE="240,401,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#home.xhtml:0" NAME="item" PATH="/home.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="admin:#{LoginMB.logarUsuario()}:#pages#admin#index.xhtml"
+    NAME="output" PATH="/pages/admin/index.xhtml"
+    TARGET="rules:#pages#admin#index.xhtml"
+    TITLE="#{LoginMB.logarUsuario()}:admin" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="moderador:#{LoginMB.logarUsuario()}:#pages#moderador#index.xhtml"
+    NAME="output1" PATH="/pages/moderador/index.xhtml"
+    TARGET="rules:#pages#moderador#index.xhtml"
+    TITLE="#{LoginMB.logarUsuario()}:moderador" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="commom:#{LoginMB.logarUsuario()}:#pages#commom#index.xhtml"
+    NAME="output2" PATH="/pages/commom/index.xhtml"
+    TARGET="rules:#pages#commom#index.xhtml"
+    TITLE="#{LoginMB.logarUsuario()}:commom" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#sucesso.xhtml" PATH="/sucesso.xhtml"
-  SHAPE="208,88,50,25" model-entity="JSFProcessGroup"/>
+  SHAPE="256,145,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#falha.xhtml" PATH="/falha.xhtml"
-  SHAPE="184,264,50,25" model-entity="JSFProcessGroup"/>
+  SHAPE="256,289,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#admin#index.xhtml"
+  PATH="/pages/admin/index.xhtml" SHAPE="480,385,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#moderador#index.xhtml"
+  PATH="/pages/moderador/index.xhtml" SHAPE="480,561,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#commom#index.xhtml"
+  PATH="/pages/commom/index.xhtml" SHAPE="480,673,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#acessoNegado.xhtml"
+  PATH="/acessoNegado.xhtml" SHAPE="256,577,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

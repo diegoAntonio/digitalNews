@@ -1,5 +1,10 @@
 package model;
 
+
+/**
+ * @author Diego
+ *	Classe que representa o usuário no sistema.
+ */
 public class Usuario {
 		private String login;//represena o usuario no sistema
 		private String senha;//representa a senha do usuario
@@ -41,5 +46,5 @@ public class Usuario {
 		public void setTipo(int tipo) {
 			this.tipo = tipo;
 		}
-				
+		/* Fim dos Getters e Setters */	
 }

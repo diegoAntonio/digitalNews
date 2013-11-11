@@ -8,6 +8,11 @@ import java.sql.Statement;
 
 import model.Usuario;
 
+/**
+ * @author Diego
+ * Classe que implementa os métodos de inserção e busca de usuarios
+ * no banco.
+ */
 public class UsuarioDAO {
 	private Connection con;//conexao com o Banco
 	
@@ -16,6 +21,14 @@ public class UsuarioDAO {
 		this.con = DAO.getConnection();
 	}
 	
+	/**
+	 * @param u
+	 * @return resultado
+	 * 
+	 * Método que faz a inserção de usuarios no banco.
+	 * Retorna true caso a inserção tenha ocorrido com sucesso
+	 * ou false em caso de problemas.
+	 */
 	public boolean inserirUsuario(Usuario u){
 		PreparedStatement state = null;
 		boolean resultado = true;
@@ -36,6 +49,16 @@ public class UsuarioDAO {
 		return resultado;
 	}
 	
+	
+	/**
+	 * @param login
+	 * @param senha
+	 * @return u
+	 * 
+	 * Metodo que faz a busca de um usario
+	 * de acordo com o login e senha passado.
+	 * caso não encontre,retorna null.
+	 */
 	public Usuario buscar(String login, String senha){
 		 Usuario u = null;
 		 PreparedStatement state = null;
@@ -45,10 +68,14 @@ public class UsuarioDAO {
 			state = con.prepareStatement("SELECT * FROM usuario WHERE login = ? AND SENHA = MD5(?)"
 					 					 ,Statement.RETURN_GENERATED_KEYS);
 			
+			state.setString(1, login);
+			state.setString(2, senha);
+			
 			rs = state.executeQuery();
 			
 			if(rs.next()){
 				u = new Usuario(rs.getNString("login"),rs.getNString("senha"));
+				u.setTipo(rs.getInt("cod_tipo"));
 			}
 			
 		} catch (SQLException e) {

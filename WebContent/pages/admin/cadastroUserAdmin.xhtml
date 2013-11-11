@@ -7,37 +7,38 @@
       
 
 <h:head>
-	<title>Digital News- A sua Melhor fonte de notícias</title>
+<title><h:outputText value="#{global['titulo.home']}" /> </title>
 </h:head> 
 <body> 
 	<p:layout fullPage="true">
 		<!-- Topo Espaço para a logo-->
 		
 		<p:layoutUnit position="north">
-			<h1>Bem vindo ao Digital News - Pagina do Administrador</h1>
+			<h1> <h:outputText value="#{global['bem.vindo.admin']}" /></h1>
 		</p:layoutUnit>
 		
 		<p:layoutUnit position="center">
-			<h3>Entre com as informações do Usuario</h3>
+		
+		<h3><h:outputText value="#{global['titulo.admin']}" /> </h3>
 			<h:form>
 				<p:panelGrid columns="3">
-					<p:outputLabel for="login" value="Login: ">
+					<p:outputLabel for="login" value="#{global.login}: ">
 						<p:inputText id="login" value="#{userB.user.login}" required="true"/>
 					</p:outputLabel>
 					
-					<p:outputLabel for="senha" value="Senha: ">
+					<p:outputLabel for="senha" value="#{global.senha}: ">
 						<p:password id="senha" value="#{userB.user.senha}" required="true"/>
 					</p:outputLabel>
 					
-					<p:selectOneButton label="Tipo do Usuario: " value="#{userB.user.tipo}">
-						<f:selectItem itemLabel="Administrador" itemValue="1"/>
-						<f:selectItem itemLabel="Moderador" itemValue="2"/>
-						<f:selectItem itemLabel="Usuario Comum" itemValue="3" />
+					<p:selectOneButton label="#{global['select.tipo.usuario']}: " value="#{userB.user.tipo}">
+						<f:selectItem itemLabel="#{global['tipo.usuario.1']}" itemValue="1"/>
+						<f:selectItem itemLabel="#{global['tipo.usuario.2']}" itemValue="2"/>
+						<f:selectItem itemLabel="#{global['tipo.usuario.3']}" itemValue="3" />
 					</p:selectOneButton>
 					
 				</p:panelGrid>
 				
-				<p:commandButton action="#{userB.cadastrarUsuario()}" value="Cadastrar" />
+				<p:commandButton action="#{userB.cadastrarUsuario()}" value="#{global['botao.cadastrar']}" />
 			</h:form>
 		</p:layoutUnit>	
 	

@@ -5,7 +5,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
     version="2.0">
-    
+       
+     <lifecycle>
+     	<phase-listener>listeners.ControleDeAcesso</phase-listener>
+     </lifecycle> 
+       
     <navigation-rule>
     	<from-view-id>/cadastroUsuario.xhtml</from-view-id>
     	<navigation-case>
@@ -18,8 +22,59 @@
     		<from-action>#{userB.cadastrarUsuario()}</from-action>
     		<from-outcome>falha</from-outcome>
     		<to-view-id>/falha.xhtml</to-view-id>
-    	</navigation-case>   	
-    
+    	</navigation-case>   
     </navigation-rule>
+    
+    
+    <navigation-rule>
+    	<from-view-id>/*</from-view-id>
+    	  <navigation-case>
+    	  	<from-outcome>loginP</from-outcome>
+    	  	<to-view-id>/home.xhtml</to-view-id>
+    	  	
+    	  	<redirect/>
+    	  </navigation-case>
+    	  
+    	  <navigation-case>
+    	  	<from-outcome>negado</from-outcome>
+    	  	<to-view-id>/acessoNegado.xhtml</to-view-id>
+    	  	
+    	  	<redirect/>
+    	  </navigation-case>	
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+    	<from-view-id>/home.xhtml</from-view-id>
+    		<navigation-case>
+    			<from-action>#{LoginMB.logarUsuario()}</from-action>
+    			<from-outcome>admin</from-outcome>
+    			<to-view-id>/pages/admin/index.xhtml</to-view-id>
+    		</navigation-case>
+    		
+    		<navigation-case>
+    			<from-action>#{LoginMB.logarUsuario()}</from-action>
+    			<from-outcome>moderador</from-outcome>
+    			<to-view-id>/pages/moderador/index.xhtml</to-view-id>
+    		</navigation-case>
+    		
+    		<navigation-case>
+    			<from-action>#{LoginMB.logarUsuario()}</from-action>
+    			<from-outcome>commom</from-outcome>
+    			<to-view-id>/pages/commom/index.xhtml</to-view-id>
+    		</navigation-case>
+    </navigation-rule>
+    
+    <application>
+    	<resource-bundle>
+    		<base-name>properties.global</base-name>
+    		<var>global</var>
+    	</resource-bundle>
+    	
+    	<resource-bundle>
+    		<base-name>properties.erros</base-name>
+    		<var>errorMsg</var>
+    	</resource-bundle>
+    </application>
 
 </faces-config>
