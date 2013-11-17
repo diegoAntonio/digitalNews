@@ -1,10 +1,6 @@
 package fachadas;
 
-import java.util.List;
-
-import model.Topico;
 import model.Usuario;
-import dao.TopicoDAO;
 import dao.UsuarioDAO;
 
 
@@ -15,13 +11,11 @@ import dao.UsuarioDAO;
  */
 public class FachadaUsuario {
 	private UsuarioDAO usuarios;//dao que faz o processo de inserção dos usuarios.
-	private TopicoDAO topicos;
 	private static FachadaUsuario f;
 	
 	private FachadaUsuario(){
 		super();
 		usuarios = new UsuarioDAO();
-		topicos = new TopicoDAO();
 	}
 	
 	

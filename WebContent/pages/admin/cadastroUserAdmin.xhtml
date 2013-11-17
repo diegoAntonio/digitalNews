@@ -15,6 +15,9 @@
 		
 		<p:layoutUnit position="north">
 			<h1> <h:outputText value="#{global['bem.vindo.admin']}" /></h1>
+			<h:form id="deslogForm">
+				<h:commandLink action="#{LoginMB.deslogar()}" value="Sair" />
+			</h:form>
 		</p:layoutUnit>
 		
 		<p:layoutUnit position="center">

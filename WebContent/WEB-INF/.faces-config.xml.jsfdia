@@ -55,4 +55,15 @@
   PATH="/pages/commom/index.xhtml" SHAPE="480,673,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#acessoNegado.xhtml"
   PATH="/acessoNegado.xhtml" SHAPE="256,577,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,273,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editarNoticias::#pages#commom#noticiasEditar.jsf" NAME="output"
+    PATH="/pages/commom/noticiasEditar.jsf"
+    TARGET="rules:#pages#commom#noticiasEditar.jsf"
+    TITLE="editarNoticias" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#commom#noticiasEditar.jsf"
+  PATH="/pages/commom/noticiasEditar.jsf" SHAPE="240,913,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

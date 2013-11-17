@@ -1,0 +1,42 @@
+* {
+    font-family: tahoma !important;
+}
+
+.tamanho {
+    width: 530px !important;
+}
+
+#noticiasTable{
+    max-width: 1000px !important; 
+}
+
+#noticiasTable > td , #noticiasTable > tr {
+    width: 250px !important;
+}
+
+.conteudo {
+    width: 200px !important;
+}
+
+.data {
+    text-align: center;
+    font-family: tahoma;
+}
+
+#menu {
+    margin-bottom: 10px;
+    width: 1000px !important; 
+    font-size: 16px;
+}
+
+.noticiaTitulo {
+    width: 100%;
+}
+
+.formCad tr, .formCad td {
+  border: none !important;
+}
+
+.formulario {
+    width: 1000px !important;
+}

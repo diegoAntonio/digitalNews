@@ -76,6 +76,7 @@ public class UsuarioDAO {
 			if(rs.next()){
 				u = new Usuario(rs.getNString("login"),rs.getNString("senha"));
 				u.setTipo(rs.getInt("cod_tipo"));
+				u.setId(rs.getInt("idUsuario"));
 			}
 			
 		} catch (SQLException e) {

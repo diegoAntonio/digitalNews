@@ -29,14 +29,17 @@
 				<p:outputLabel for="senha" value="#{global['senha']} "/>
 					<p:password id="senha"  value="#{LoginMB.user.senha}" />
 						
-				<p:commandButton action="#{LoginMB.logarUsuario()}" value="#{global['botao.logar']}" >
+				<p:commandButton action="#{LoginMB.logarUsuario()}" ajax="false" value="#{global['botao.logar']}" >
 					<f:ajax execute="@form"  render="@all" />
 				</p:commandButton>
 					<h:column/>
+				
 			</p:panelGrid>
-			<h:messages id="msg" globalOnly="true"  />
+			
+				<h:messages globalOnly="true"  />
 		</h:form>
 		<h:outputText value="#{global['campos.obrigatorios']}" />
+		
 		
 		
 		

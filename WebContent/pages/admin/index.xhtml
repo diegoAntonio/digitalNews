@@ -6,22 +6,25 @@
       xmlns:p="http://primefaces.org/ui">  
 
 <h:head>
-	<title>Digital News- A sua Melhor fonte de notícias</title>
+	<title><h:outputText value="#{global['bem.vindo']}"/> </title>
 </h:head> 
 <body> 
 	<p:layout fullPage="true">
 		<!-- Topo Espaço para a logo-->
 		
 		<p:layoutUnit position="north">
-			<h1>Bem vindo ao Digital News - Pagina do Administrador</h1>
+			<h1><h:outputText value="#{global['bem.vindo.admin']}" /></h1>
+			<h:form id="deslogForm">
+				<h:commandLink action="#{LoginMB.deslogar()}" value="Sair" />
+			</h:form>
 		</p:layoutUnit>
 		
 		<p:layoutUnit position="center">
 			<p:outputPanel>
-				<h2>Selecione uma opcao abaixo</h2>
 				<h:form>
-					<h:commandLink action="cadastroUserAdmin" value="Cadastrar USuarios"/>
-					<h:commandLink action="cadastroTopicos" value="Cadastrar Topico"/>
+					<p:panelGrid columns="2">
+						<h:commandLink action="cadastroUserAdmin" value="Cadastrar Usuarios"/>
+					</p:panelGrid>
 				</h:form>
 				
 			</p:outputPanel>

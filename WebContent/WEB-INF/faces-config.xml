@@ -9,6 +9,42 @@
      <lifecycle>
      	<phase-listener>listeners.ControleDeAcesso</phase-listener>
      </lifecycle> 
+     
+       <managed-bean>
+        <managed-bean-name>AvaliacaoBean</managed-bean-name>
+        <managed-bean-class>beans.AvaliacaoBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+        
+    <managed-bean>
+        <managed-bean-name>NoticiaBean</managed-bean-name>
+        <managed-bean-class>beans.NoticiaBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>EditarNoticiaBean</managed-bean-name>
+        <managed-bean-class>beans.EditarNoticiaBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>    
+    
+    <managed-bean>
+        <managed-bean-name>TopicoBean</managed-bean-name>
+        <managed-bean-class>beans.TopicoBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>VisualizarNoticiaBean</managed-bean-name>
+        <managed-bean-class>beans.VisualizarNoticiaBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>      
+    
+    <managed-bean>
+        <managed-bean-name>Redirecionamento</managed-bean-name>
+        <managed-bean-class>beans.Redirecionamento</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
        
     <navigation-rule>
     	<from-view-id>/cadastroUsuario.xhtml</from-view-id>
@@ -23,6 +59,13 @@
     		<from-outcome>falha</from-outcome>
     		<to-view-id>/falha.xhtml</to-view-id>
     	</navigation-case>   
+    </navigation-rule>
+    
+    <navigation-rule>
+    	<navigation-case>
+    		<from-outcome>editarNoticias</from-outcome>
+    		<to-view-id>/pages/commom/noticiasEditar.jsf</to-view-id>
+    	</navigation-case>
     </navigation-rule>
     
     

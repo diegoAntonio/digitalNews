@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Digital News - A sua melhor fonte de notícias !</title>
+        <meta name="viewport" content="width=device-width"/>
+        <link rel="stylesheet" href="css/noticias.css" media="screen"></link>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <!-- Topo Espaço para a logo-->
+
+            <p:layoutUnit position="north">
+                <h1>Bem vindo ao Digital News!</h1>
+            </p:layoutUnit>
+
+            <!-- Meio,espaço para o site -->
+
+            <p:layoutUnit position="center">
+
+                <p:menubar id="menu">
+                    <p:menuitem value="Cadastrar" url="noticiasCadastro.jsf" />
+                    <p:menuitem value="Notícias Bloqueadas" url="noticiasBloqueadas.jsf" />
+                    <p:menuitem value="Noticias publicadas por você" url="noticiasDoUsuario.jsf" />
+                </p:menubar>  
+
+                <p:dataTable id="noticiasTable" value="#{NoticiaBean.listarNoticiasBloqueadas()}" var="noticia">
+                    <f:facet name="header">
+                        Lista de Noticias Bloqueadas                       
+                    </f:facet>
+
+                    <p:column width="700">
+                        <f:facet name="header" id="titulo">
+                            Título
+                        </f:facet>
+                        <h:outputLink value="../../noticia/noticiasVisualizar.xhtml">
+                            <f:param name="codigoNoticia" value="#{noticia.identificador}" />
+                            #{noticia.titulo}
+                        </h:outputLink>
+                    </p:column>
+                    <p:column styleClass="data">
+                        <f:facet name="header">
+                            Data de Publicação
+                        </f:facet>
+                        <h:outputText value="#{noticia.dataDePublicacao}">  
+                            <f:convertDateTime pattern="dd/MM/yyyy"/>  
+                        </h:outputText>  
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            Opções
+                        </f:facet>
+
+                        <p:button outcome="desbloquear" value="Desbloquear" icon="ui-icon-close">
+                            <f:param name="codigoNoticia" value="#{noticia.identificador}"></f:param>
+                        </p:button>
+
+                    </p:column>                    
+
+                </p:dataTable>
+
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south">
+                <p>&copy; 2013 - Digital News - A sua melhor fonte de notícias!</p>
+            </p:layoutUnit>
+
+        </p:layout>       
+    </h:body>
+</html>

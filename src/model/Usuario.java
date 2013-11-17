@@ -9,6 +9,7 @@ public class Usuario {
 		private String login;//represena o usuario no sistema
 		private String senha;//representa a senha do usuario
 		private int tipo;//representa o tipo do usuario no sistema.
+		private int id;
 		
 		/*Construtor Default*/
 		public Usuario(){
@@ -22,6 +23,15 @@ public class Usuario {
 			this.senha = senha;
 		}
 		
+		
+		/*Construtor com todos os campos*/
+		public Usuario(String login, String senha, int tipo, int id) {
+			super();
+			this.login = login;
+			this.senha = senha;
+			this.tipo = tipo;
+			this.id = id;
+		}
 		/* Getters e Setters */
 		public String getLogin() {
 			return login;
@@ -46,5 +56,13 @@ public class Usuario {
 		public void setTipo(int tipo) {
 			this.tipo = tipo;
 		}
-		/* Fim dos Getters e Setters */	
+		
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}	
+		/* Fim dos Getters e Setters */
+		
 }
