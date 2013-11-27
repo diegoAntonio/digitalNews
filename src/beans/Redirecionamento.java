@@ -1,8 +1,6 @@
 package beans;
 
 import java.io.IOException;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 /**
@@ -29,5 +27,17 @@ public class Redirecionamento {
     
     public void RedirecionarEdicao() throws IOException {
         FacesContext.getCurrentInstance().getExternalContext().redirect("noticiasEditar.jsf");
+    }
+    
+    public void redirecionarComentarios() throws IOException {
+        FacesContext.getCurrentInstance().getExternalContext().redirect("comentariosTodos.jsf");
+    }    
+    
+    public void redirecionarNoticiasDenunciadas() throws IOException {
+        FacesContext.getCurrentInstance().getExternalContext().redirect("noticiasDenunciadas.jsf");
+    }
+    
+    public void redirecionarNoticiasTodas() throws IOException {
+        FacesContext.getCurrentInstance().getExternalContext().redirect("noticiasTodas.jsf");
     }
 }

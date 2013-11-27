@@ -31,7 +31,9 @@ public class FachadaNoticia {
     }
     
     public boolean deletarNoticia(int codigoNoticia) throws SQLException {
-        return (fachada.dao.deletarNoticia(codigoNoticia));
+    			FachadaComentario.getInstance().excluirComentariosDaNoticia(codigoNoticia);
+				FachadaDenuncia.getInstance().retirarDenuncia(codigoNoticia);
+    			return (fachada.dao.deletarNoticia(codigoNoticia));
     }
     
     public List<Noticia> listarTodasAsNoticiasDoUsuario(int codigoUsuario) {
@@ -63,5 +65,13 @@ public class FachadaNoticia {
     
     public boolean editarNoticia(Noticia noticia){
     	return (fachada.dao.editarNoticia(noticia));
+    }
+    
+    public List<Noticia> listarTodasAsNoticias(){
+        return (fachada.dao.listarTodasAsNoticias());
+    }
+    
+    public List<Noticia> listarNoticiasDenunciadas() {
+        return (fachada.dao.listarNoticiasDenunciadas());
     }
 }

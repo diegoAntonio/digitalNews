@@ -159,7 +159,6 @@ public class LoginBean {
 		
 		try{
 			msg = this.bundle.getString(codigoDaChave);
-			System.out.println("a mensagem eh " + msg);
 		}catch(MissingResourceException m){
 			msg = "???" + "msg not found" + "???";
 		}

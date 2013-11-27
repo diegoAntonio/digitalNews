@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Digital News - A sua melhor fonte de notícias !</title>
+        <meta name="viewport" content="width=device-width"/>
+        <link rel="stylesheet" href="css/noticias.css" media="screen"></link>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <!-- Topo Espaço para a logo-->
+
+            <p:layoutUnit position="north">
+                <h1>Bem vindo ao Digital News!</h1>
+            </p:layoutUnit>
+
+            <!-- Meio,espaço para o site -->
+
+            <p:layoutUnit position="center">
+
+                <p:menubar id="menu">
+                    <p:menuitem value="Notícias denunciadas" url="noticiasDenunciadas.xhtml" />
+                    <p:menuitem value="Comentários" url="comentariosTodos.xhtml" />
+                    <p:menuitem value="Notícias" url="noticiasTodas.xhtml" />
+                </p:menubar>  
+
+                <!-- listar os comentarios dessa noticia -->
+                <p:dataGrid id="listaDeComentarios" var="comentarios" value="#{ComentarioBean.listarTodosOsComentariosBloqueados()}"
+                            columns="1" rows="10" paginator="true" paginatorPosition="bottom" styleClass="listaDeComentarios">
+                    <f:facet name="header">
+                        Lista de comentarios bloqueados
+                    </f:facet>
+
+                    <p:panel styleClass="noborder">
+
+                        <f:facet name="header">
+                            <h:outputText value="#{comentarios.dataDePublicacao}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" type="both" />
+                            </h:outputText>
+                        </f:facet>
+
+                        <p:panelGrid columns="2">
+                            <h:outputText styleClass="comentarioConteudo" value="#{comentarios.conteudo}" />
+
+                            <p:button styleClass="excluir" outcome="deletarComentario" value="Deletar Comentário" icon="ui-icon-close">
+                                <f:param name="codigoComentario" value="#{comentarios.identificador}"></f:param>
+                            </p:button> 
+                        </p:panelGrid> 
+                    </p:panel>
+                </p:dataGrid>
+                <!-- /listar os comentarios dessa noticia -->
+
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south">
+                <p>&copy; 2013 - Digital News - A sua melhor fonte de notícias!</p>
+            </p:layoutUnit>
+
+        </p:layout>       
+    </h:body>
+</html>

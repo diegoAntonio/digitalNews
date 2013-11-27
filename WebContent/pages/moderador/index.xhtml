@@ -5,24 +5,30 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"> 
 
-<h:head></h:head> 
-<body> 
-	<p:layout fullPage="true">
-	
-		<p:layoutUnit position="north">
-			  <h1>Bem vindo ao Digital News!</h1>
-                <h:form id="deslogForm">
-					<h:commandLink action="#{LoginMB.deslogar()}" value="Sair" />
-				</h:form>
-		
-		</p:layoutUnit>
-		
-		<p:layoutUnit position="center">
-			<h:outputText value="#{global['bem.vindo.moderador']}" />
-			
-			<h2>Proxima Entrega =/</h2>
-		</p:layoutUnit>
-	
-	</p:layout>
-</body> 
+
+    <h:head></h:head> 
+    <body> 
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north">
+                <h1>Bem vindo ao Digital News!</h1>
+               <h:form id="deslogForm">
+                    <h:commandLink action="#{LoginMB.deslogar()}" value="Sair" />
+                </h:form> 
+
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+<!--                <h:outputText value="{global['bem.vindo.moderador']}" />-->
+                <p:menubar id="menu">
+                    <p:menuitem value="Notícias denunciadas" url="/pages/moderador/noticiasDenunciadas.jsf" />
+                    <p:menuitem value="Comentários" url="/pages/moderador/comentariosTodos.jsf" />
+                    <p:menuitem value="Notícias" url="/pages/moderador/noticiasTodas.jsf" />
+                </p:menubar>  
+               
+            </p:layoutUnit>
+
+        </p:layout>
+    </body> 
 </html>
+

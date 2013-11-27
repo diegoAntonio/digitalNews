@@ -16,7 +16,7 @@
     width: 250px !important;
 }
 
-.editar, .excluir, .denunciar, .comentar, .desbloquear, .retirarDaLista {
+.editar, .excluir, .denunciar, .comentar, .desbloquear {
     font-family: tahoma !important;
     font-size: 11px !important;
     font-weight: normal;
@@ -76,10 +76,4 @@ p {
     font-size: 30px;
     font-weight: bold;
     width: 100px !important;
-}
-
-.noticiasTodas-titulo {
-    display: inline-block;
-    width: 700px !important;
-    min-height: 30px;
 }

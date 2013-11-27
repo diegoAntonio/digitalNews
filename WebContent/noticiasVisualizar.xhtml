@@ -20,28 +20,18 @@ and open the template in the editor.
     <h:body>
         <p:layout fullPage="true">
             <!-- Topo Espaço para a logo-->
-            <p:layoutUnit position="north">
-                <p:menubar id="menuTopo">
-                    <p:menuitem value="Home Page" url="/pages/commom/main.jsf" />
-                    <p:menuitem value="" url="/pages/commom/noticiasCadastro.jsf" />
-                    <p:menuitem value="Notícias" url="/pages/commom/noticias.jsf" />
-                    <p:menuitem value="Melhores Notícias" url="/pages/commom/melhores.jsf" />
-                    <p:menuitem value="Noticias publicadas por você" url="/pages/commom/noticiasDoUsuario.jsf" />
-                </p:menubar>
-                <h:form id="deslogForm">
-					<h:commandLink action="#{LoginMB.deslogar()}" value="Sair" />
-				</h:form>
-            </p:layoutUnit>
-
-            <!-- Meio,espaço para o site -->
-
             <f:metadata>
                 <f:viewParam name="codigoNoticia" value="#{VisualizarNoticiaBean.identificador}"/>
                 novo
                 <f:viewParam name="codigoNoticia" value="#{ComentarioBean.comentario.idNoticia}"/>
                 /novo
             </f:metadata>
+            
+            <p:layoutUnit position="north">
+                <h1>Bem vindo ao Digital News!</h1>
+              </p:layoutUnit>
 
+            <!-- Meio,espaço para o site -->
             <p:layoutUnit position="center">
 
                 <p:dataTable id="noticiasVisualizar" var="noticia" value="#{VisualizarNoticiaBean.buscarNoticiaUsuarioLogado()}" styleClass="noticia">
@@ -63,35 +53,9 @@ and open the template in the editor.
                         <p class="size">
                             <h:outputText value="#{noticia.conteudo}" escape="false"/>
                         </p>
-                        
-                        <!-- novo -->
-                        <p>
-                            <p:button styleClass="denunciar" outcome="denunciarNoticia" value="Denunciar" >
-                                <f:param name="codigoNoticia" value="#{noticia.identificador}"></f:param>
-                            </p:button>
-                        </p>
-                        <!-- novo -->
-                        
+                      
                     </p:column>
                 </p:dataTable>
-                
-                     <!-- novo -->
-                <!-- inserir comentários -->
-                <h:form id="inserirComentario" style="margin-top: 12px;">
-                    <p:panelGrid columns="1" id="formCadastroDeNoticias" styleClass="formComentario">
-                        <f:facet name="header">
-                            Comente algo!
-                        </f:facet>
-                        <p:editor id="conteudo" height="200" width="870" value="#{ComentarioBean.comentario.conteudo}" 
-                                  rendered="true" />
-                    </p:panelGrid>
-                    
-                    
-                        <p:commandButton ajax="false" value="Comentar" id="comentar" update=":listaDeComentarios"
-                                     styleClass="comentar" actionListener="#{ComentarioBean.inserirComentario}" icon="ui-icon-disk">
-                        </p:commandButton>   
-                </h:form>
-                <!-- inserir comentários -->
                 
                 <!-- listar os comentarios dessa noticia -->
                 <p:dataGrid id="listaDeComentarios" var="comentarios" value="#{ComentarioBean.listarComentariosDaNoticia(VisualizarNoticiaBean.identificador)}"

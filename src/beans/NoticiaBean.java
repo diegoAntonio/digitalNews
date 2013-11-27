@@ -92,6 +92,12 @@ public class NoticiaBean {
         lista = fachada.listarNoticiasMaisBemAvaliadas();
         return lista;
     }
+    
+    public List<Noticia> listarNoticiasDenunciadas() throws SQLException {
+        List<Noticia> lista;
+        lista = fachada.listarNoticiasDenunciadas();
+        return lista;
+    }
 
 	public Usuario getUser() {
 		return user;

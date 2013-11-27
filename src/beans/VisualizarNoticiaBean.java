@@ -1,8 +1,12 @@
 package beans;
 
+import java.util.List;
+
 import fachadas.FachadaNoticia;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+
 import model.Noticia;
 
 /**
@@ -53,6 +57,12 @@ public class VisualizarNoticiaBean {
 
     public void setLista(Noticia lista) {
        this.lista = lista;
+    }
+    
+    public List<Noticia> buscarTodasAsNoticias() {
+        List<Noticia> listaDeNoticias;
+        listaDeNoticias = fachada.listarTodasAsNoticias();
+        return listaDeNoticias;
     }
     
     

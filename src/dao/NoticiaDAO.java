@@ -341,5 +341,96 @@ public class NoticiaDAO {
     }
     
     
+    public List<Noticia> listarNoticiasDenunciadas() {
+        StringBuilder sql;
+        sql = new StringBuilder("SELECT * FROM noticia ");
+        sql.append("WHERE noticia.idNoticia IN ");
+        sql.append("(SELECT cod_noticia FROM denuncias)");
+        List<Noticia> listaDeNoticias = new ArrayList<Noticia>();
+        Noticia noticia;
+        PreparedStatement pstatement;
+
+        try {
+            pstatement = conexao.prepareStatement(sql.toString());
+
+            ResultSet resultado = pstatement.executeQuery();
+
+            while (resultado.next()) {
+                noticia = new Noticia();
+
+                int id = resultado.getInt("IDNOTICIA");
+                int idUsuario = resultado.getInt("COD_USUARIO");
+                int idTopico = resultado.getInt("COD_TOPICO");
+                Date dataDePublicacao = resultado.getDate("DATA_DE_PUBLICACAO");
+                String conteudo = resultado.getString("TEXTO");
+                String titulo = resultado.getString("TITULO");
+                int avaliacao = resultado.getInt("AVALIACAO");
+                boolean estaBloqueada = resultado.getBoolean("BLOQUEADA");
+
+                noticia.setIdentificador(id);
+                noticia.setCodigoUsuario(idUsuario);
+                noticia.setCodigoTopico(idTopico);
+                noticia.setDataDePublicacao(dataDePublicacao);
+                noticia.setConteudo(conteudo);
+                noticia.setTitulo(titulo);
+                noticia.setAvaliacao(avaliacao);
+                noticia.setBloqueio(estaBloqueada);
+
+                listaDeNoticias.add(noticia);
+            }
+
+        } catch (SQLException excecao) {
+            System.out.println("listarNoticiasDenunciadas");
+            System.out.println("MENSAGEM: " + excecao.getMessage());
+            System.out.println("SQL State: " + excecao.getSQLState());
+        }
+        return listaDeNoticias;        
+    }
+    
+    
+    public List<Noticia> listarTodasAsNoticias() {
+        String sql = "SELECT * FROM noticia";
+        List<Noticia> listaDeNoticias = new ArrayList<Noticia>();
+        Noticia noticia;
+        PreparedStatement pstatement;
+
+        try {
+            pstatement = conexao.prepareStatement(sql);
+
+            ResultSet resultado = pstatement.executeQuery();
+
+            while (resultado.next()) {
+                noticia = new Noticia();
+
+                int id = resultado.getInt("IDNOTICIA");
+                int idUsuario = resultado.getInt("COD_USUARIO");
+                int idTopico = resultado.getInt("COD_TOPICO");
+                Date dataDePublicacao = resultado.getDate("DATA_DE_PUBLICACAO");
+                String conteudo = resultado.getString("TEXTO");
+                String titulo = resultado.getString("TITULO");
+                int avaliacao = resultado.getInt("AVALIACAO");
+                boolean estaBloqueada = resultado.getBoolean("BLOQUEADA");
+
+                noticia.setIdentificador(id);
+                noticia.setCodigoUsuario(idUsuario);
+                noticia.setCodigoTopico(idTopico);
+                noticia.setDataDePublicacao(dataDePublicacao);
+                noticia.setConteudo(conteudo);
+                noticia.setTitulo(titulo);
+                noticia.setAvaliacao(avaliacao);
+                noticia.setBloqueio(estaBloqueada);
+
+                listaDeNoticias.add(noticia);
+
+            }
+
+        } catch (SQLException excecao) {
+            System.out.println("listarTodasAsNoticiasDoUsuario");
+            System.out.println("MENSAGEM: " + excecao.getMessage());
+            System.out.println("SQL State: " + excecao.getSQLState());
+        }
+        return listaDeNoticias;
+    }
+    
 
 }

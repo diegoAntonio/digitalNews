@@ -45,6 +45,18 @@
         <managed-bean-class>beans.Redirecionamento</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>ComentarioBean</managed-bean-name>
+        <managed-bean-class>beans.ComentarioBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>DenunciaBean</managed-bean-name>
+        <managed-bean-class>beans.DenunciaBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
        
     <navigation-rule>
     	<from-view-id>/cadastroUsuario.xhtml</from-view-id>

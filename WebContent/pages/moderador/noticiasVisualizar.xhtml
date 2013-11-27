@@ -10,7 +10,7 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      >
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Digital News - A sua melhor fonte de notícias !</title>
         <meta name="viewport" content="width=device-width"/>
@@ -22,24 +22,23 @@ and open the template in the editor.
             <!-- Topo Espaço para a logo-->
             <p:layoutUnit position="north">
                 <p:menubar id="menuTopo">
-                    <p:menuitem value="Home Page" url="/pages/commom/main.jsf" />
-                    <p:menuitem value="" url="/pages/commom/noticiasCadastro.jsf" />
-                    <p:menuitem value="Notícias" url="/pages/commom/noticias.jsf" />
-                    <p:menuitem value="Melhores Notícias" url="/pages/commom/melhores.jsf" />
-                    <p:menuitem value="Noticias publicadas por você" url="/pages/commom/noticiasDoUsuario.jsf" />
+                    <p:menuitem value="Notícias denunciadas" url="noticiasDenunciadas.jsf" />
+                    <p:menuitem value="Comentários" url="comentariosTodos.jsf" />
+                    <p:menuitem value="Notícias" url="noticiasTodas.jsf" />
                 </p:menubar>
-                <h:form id="deslogForm">
-					<h:commandLink action="#{LoginMB.deslogar()}" value="Sair" />
-				</h:form>
+                
+                 <h:form id="deslogForm">
+                    <h:commandLink action="#{LoginMB.deslogar()}" value="Sair" />
+                </h:form> 
             </p:layoutUnit>
 
             <!-- Meio,espaço para o site -->
 
             <f:metadata>
                 <f:viewParam name="codigoNoticia" value="#{VisualizarNoticiaBean.identificador}"/>
-                novo
+                <!-- novo -->
                 <f:viewParam name="codigoNoticia" value="#{ComentarioBean.comentario.idNoticia}"/>
-                /novo
+                <!-- /novo -->
             </f:metadata>
 
             <p:layoutUnit position="center">
@@ -75,7 +74,7 @@ and open the template in the editor.
                     </p:column>
                 </p:dataTable>
                 
-                     <!-- novo -->
+                <!-- novo -->
                 <!-- inserir comentários -->
                 <h:form id="inserirComentario" style="margin-top: 12px;">
                     <p:panelGrid columns="1" id="formCadastroDeNoticias" styleClass="formComentario">
@@ -103,7 +102,7 @@ and open the template in the editor.
                     <p:panel styleClass="noborder">
 
                         <f:facet name="header">
-                            <h:outputText value="#{comentarios.identificador} "></h:outputText>
+                            <h:outputText value=" ##{comentarios.identificador} "></h:outputText>
                             <h:outputText value="#{comentarios.dataDePublicacao}">
                                 <f:convertDateTime pattern="dd/MM/yyyy" type="both" />
                             </h:outputText>
@@ -113,9 +112,9 @@ and open the template in the editor.
                         <p:panelGrid columns="2">
                             <h:outputText styleClass="comentarioConteudo" value="#{comentarios.conteudo}" />
 
-<!--                            <p:button styleClass="denunciar" outcome="avaliar" value="Denunciar Comentario" > -->
-<!--                                 <f:param name="codigoComentario" value="{comentarios.identificador}"></f:param> -->
-<!--                             </p:button>  -->
+<!--                            <p:button styleClass="denunciar" outcome="avaliar" value="Denunciar Comentario" >
+                                <f:param name="codigoComentario" value="{comentarios.identificador}"></f:param>
+                            </p:button>-->
                             
                         </p:panelGrid> 
                     </p:panel>
@@ -124,7 +123,6 @@ and open the template in the editor.
                 <!-- novo -->
 
             </p:layoutUnit>
-
 
             <p:layoutUnit position="south">
                 <p>&copy; 2013 - Digital News - A sua melhor fonte de notícias!</p>

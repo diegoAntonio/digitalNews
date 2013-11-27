@@ -19,20 +19,17 @@
     <h:body>
         <p:layout fullPage="true">
              Topo Espaço para a logo
+             
+             <p:layoutUnit position="north">
+                <h1>Bem vindo ao Digital News!</h1>
+              </p:layoutUnit>
 
             <p:layoutUnit position="north">
                 <h1>Bem vindo ao Digital News!</h1>
                	 <p:menubar id="menuTopo">
-                    <p:menuitem value="Home Page" url="/pages/commom/main.jsf" />
-                    <p:menuitem value="" url="/pages/commom/pnoticiasCadastro.jsf" />
-                    <p:menuitem value="Notícias" url="/pages/commom/noticias.jsf" />
-                    <p:menuitem value="Melhores Notícias" url="/pages/commom/melhores.jsf" />
-                    <p:menuitem value="Noticias publicadas por você" url="/pages/commom/noticiasDoUsuario.jsf" />
+                    <p:menuitem value="Login" url="/home.jsf" />
+                  
                 </p:menubar>
-                
-                <h:form id="deslogForm">
-					<h:commandLink action="#{LoginMB.deslogar()}" value="Sair" />
-				</h:form>
             </p:layoutUnit>
 
              Meio,espaço para o site 
@@ -61,25 +58,6 @@
                                 <f:convertDateTime pattern="dd/MM/yyyy"/>  
                             </h:outputText>  
                     </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            Opções
-                        </f:facet>
-                        
-                        <p:button outcome="deletar" value="Excluir" icon="ui-icon-close">
-                            <f:param name="codigoNoticia" value="#{noticia.identificador}"></f:param>
-                        </p:button>
-
-                        <p:button outcome="editar" value="Editar" icon="ui-icon-note">
-                            <f:param name="codigoNoticia" value="#{noticia.identificador}"></f:param>
-                        </p:button>                        
-                       
-<!--                         <p:button outcome="../noticias/noticiasDetalhe" value="Bookmark" icon="ui-icon-star">   -->
-<!--                             <f:param name="noticiaId" value="{noticia.identificador}" />  dando erro e não sei oq é -->
-<!--                         </p:button>  -->
-                        
-                        
-                    </p:column>                    
                 
                 </p:dataTable>
                     

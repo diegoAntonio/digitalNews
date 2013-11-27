@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Digital News - A sua melhor fonte de notícias !</title>
+        <meta name="viewport" content="width=device-width"/>
+        <link rel="stylesheet" href="css/noticias.css" media="screen"></link>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <!-- Topo Espaço para a logo-->
+
+            <p:layoutUnit position="north">
+                <h1>Bem vindo ao Digital News!</h1>
+                 <h:form id="deslogForm">
+                    <h:commandLink action="#{LoginMB.deslogar()}" value="Sair" />
+                </h:form> 
+            </p:layoutUnit>
+
+            <!-- Meio,espaço para o site -->
+
+            <p:layoutUnit position="center">
+
+                <p:menubar id="menu">
+                    <p:menuitem value="Notícias denunciadas" url="noticiasDenunciadas.jsf" />
+                    <p:menuitem value="Comentários" url="comentariosTodos.jsf" />
+                    <p:menuitem value="Notícias" url="noticiasTodas.jsf" />
+                </p:menubar>  
+
+                <!-- listar os comentarios dessa noticia -->
+                <p:dataGrid id="listaDeComentarios" var="noticia" value="#{VisualizarNoticiaBean.buscarTodasAsNoticias()}"
+                            columns="1" rows="10" paginator="true" paginatorPosition="bottom" styleClass="listaDeComentarios">
+                    <f:facet name="header">
+                        Lista de notícias
+                    </f:facet>
+
+                    <p:panel styleClass="noborder">
+
+                        <f:facet name="header">
+                            <h:outputText value="#{noticia.dataDePublicacao}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" type="both" />
+                            </h:outputText>
+                        </f:facet>
+
+                        <p:panelGrid columns="2">
+                            <h:outputLink styleClass="noticiasTodas-titulo" value="noticiasVisualizar.jsf">
+                            <f:param name="codigoNoticia" value="#{noticia.identificador}" />
+                            #{noticia.titulo}
+                            </h:outputLink>
+                            
+                            <p:button styleClass="excluir" outcome="deletar" value="Deletar" icon="ui-icon-close">
+                                <f:param name="codigoNoticia" value="#{noticia.identificador}"></f:param>
+                            </p:button> 
+                        </p:panelGrid> 
+                    </p:panel>
+                </p:dataGrid>
+                <!-- /listar os comentarios dessa noticia -->
+
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south">
+                <p>&copy; 2013 - Digital News - A sua melhor fonte de notícias!</p>
+            </p:layoutUnit>
+
+        </p:layout>       
+    </h:body>
+</html>
