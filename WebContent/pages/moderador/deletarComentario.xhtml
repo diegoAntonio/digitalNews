@@ -11,7 +11,7 @@ and open the template in the editor.
       xmlns:ui="http://java.sun.com/jsf/facelets"
       >
     <h:head>
-        <title>Digital News - A sua melhor fonte de notícias !</title>
+        <title><h:outputText value="#{global['titulo.home']}" />!</title>
         <meta name="viewport" content="width=device-width"/>
         <f:metadata>
             <f:viewParam name="codigoComentario" value="#{ComentarioBean.id}"/>

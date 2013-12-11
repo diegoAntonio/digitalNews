@@ -389,7 +389,7 @@ public class NoticiaDAO {
     
     
     public List<Noticia> listarTodasAsNoticias() {
-        String sql = "SELECT * FROM noticia";
+        String sql = "SELECT * FROM noticia ORDER BY data_de_publicacao DESC";
         List<Noticia> listaDeNoticias = new ArrayList<Noticia>();
         Noticia noticia;
         PreparedStatement pstatement;
@@ -432,5 +432,23 @@ public class NoticiaDAO {
         return listaDeNoticias;
     }
     
-
+    public boolean atualizarAvaliacao(int codigoNoticia,int avaliacao){
+    		boolean resultado = true;
+    		PreparedStatement state = null;
+    		
+    		try {
+				state = conexao.prepareStatement("UPDATE NOTICIA SET AVALIACAO =  AVALIACAO + ? WHERE IDNOTICIA = ?");
+				
+				state.setInt(1, avaliacao);
+				state.setInt(2, codigoNoticia);
+				
+				state.executeUpdate();
+				
+			} catch (SQLException e) {
+				resultado = false;
+				e.printStackTrace();
+			}
+    		
+    		return resultado;
+    }
 }

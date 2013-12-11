@@ -5,21 +5,23 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"> 
 
-<h:head></h:head> 
+<h:head>
+	<title><h:outputText value="#{global['titulo.home']}" /></title>
+</h:head> 
 <body> 
 	<p:layout fullPage="true">
 		<p:layoutUnit position="north">
-			<h1>Erro</h1>
+			<h1><h:outputText value="#{errorMsg['erro.generic']}" /></h1>
 			
 		</p:layoutUnit>
 		
 		<p:layoutUnit position="center">
-			<p>Aconteceu um erro no seu cadastro,tente novamente</p>
+			<p><h:outputText value="#{errorMsg['erro.cadastro.user']}" /> </p>
 		</p:layoutUnit>
 		
 		<p:layoutUnit position="south">
 			<h:form id="cadastroForm">
-				<h:commandLink action="home" value="voltar ao login"/>
+				<h:commandLink action="home" value="#{global['link.retorno.login']}"/>
 			</h:form>
 		</p:layoutUnit>
 	</p:layout>

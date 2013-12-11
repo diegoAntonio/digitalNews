@@ -12,7 +12,7 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui"
       >
     <h:head>
-        <title>Digital News - A sua melhor fonte de notícias !</title>
+        <title><h:outputText value="#{global['titulo.home']}" />!</title>
         <meta name="viewport" content="width=device-width"/>
         <link rel="stylesheet" href="css/noticias.css" media="screen"></link>
 
@@ -22,14 +22,15 @@ and open the template in the editor.
             <!-- Topo Espaço para a logo-->
             <p:layoutUnit position="north">
                 <p:menubar id="menuTopo">
-                    <p:menuitem value="Home Page" url="/pages/commom/main.jsf" />
-                    <p:menuitem value="" url="/pages/commom/noticiasCadastro.jsf" />
-                    <p:menuitem value="Notícias" url="/pages/commom/noticias.jsf" />
-                    <p:menuitem value="Melhores Notícias" url="/pages/commom/melhores.jsf" />
-                    <p:menuitem value="Noticias publicadas por você" url="/pages/commom/noticiasDoUsuario.jsf" />
+                    <p:menuitem value="#{global['noticias.home']}" url="/pages/commom/main.jsf" />
+                    <p:menuitem value="#{global['cadastrar.noticia']}" url="/pages/commom/noticiasCadastro.jsf" />
+                    <p:menuitem value="#{global['noticias.generic']}" url="/pages/commom/noticias.jsf" />
+                    <p:menuitem value="#{global['noticias.melhores']}" url="/pages/commom/melhores.jsf" />
+                    <p:menuitem value="#{global['noticias.publicadas.voce']}" url="/pages/commom/noticiasDoUsuario.jsf" />
                 </p:menubar>
                 <h:form id="deslogForm">
 					<h:commandLink action="#{LoginMB.deslogar()}" value="Sair" />
+					
 				</h:form>
             </p:layoutUnit>
 
@@ -37,9 +38,7 @@ and open the template in the editor.
 
             <f:metadata>
                 <f:viewParam name="codigoNoticia" value="#{VisualizarNoticiaBean.identificador}"/>
-                novo
                 <f:viewParam name="codigoNoticia" value="#{ComentarioBean.comentario.idNoticia}"/>
-                /novo
             </f:metadata>
 
             <p:layoutUnit position="center">
@@ -50,15 +49,11 @@ and open the template in the editor.
                             <h:outputText value="#{noticia.titulo}" styleClass="noticiaTitulo"/>
                         </p>
 
-                        <p>Publicado em:
+                        <p> <h:outputText value="#{global['publicado.em']}:" />
                             <h:outputText value="#{noticia.dataDePublicacao}">
                                 <f:convertDateTime pattern="dd/MM/yyyy" type="both" />
                             </h:outputText>
                         </p>
-
-
-                        <p:rating value="#{AvaliacaoBean.avaliacao}" stars="5" cancel="false" readonly="true"></p:rating>
-                        <br></br>
 
                         <p class="size">
                             <h:outputText value="#{noticia.conteudo}" escape="false"/>
@@ -66,28 +61,56 @@ and open the template in the editor.
                         
                         <!-- novo -->
                         <p>
-                            <p:button styleClass="denunciar" outcome="denunciarNoticia" value="Denunciar" >
+                            <p:button styleClass="denunciar" outcome="denunciarNoticia" value="#{global['botao.denunciar']}" >
                                 <f:param name="codigoNoticia" value="#{noticia.identificador}"></f:param>
                             </p:button>
                         </p>
-                        <!-- novo -->
                         
+                    </p:column>
+                    
+                    <p:column>
+                    		<h:outputLabel value="#{global['label.avaliacao']}" for="opGeral" />
+                        <p:rating id="opGeral" value="#{noticia.avaliacao}" readonly="true"/>  
+                        <br></br>
+                
                     </p:column>
                 </p:dataTable>
                 
+                  	 	<h:outputLabel value="#{global['label.votar']}" />
+					<h:form >
+						<p:selectOneButton styleClass="denunciar"  label="#{global['label.votar']}"
+							value="#{avMB.avaliacao}">
+							<f:selectItem itemLabel="0" itemValue="0" />
+							<f:selectItem itemLabel="1" itemValue="1" />
+							<f:selectItem itemLabel="2" itemValue="2" />
+							<f:selectItem itemLabel="3" itemValue="3" />
+							<f:selectItem itemLabel="4" itemValue="4" />
+							<f:selectItem itemLabel="5" itemValue="5" />
+						</p:selectOneButton>
+						
+						<p:growl id="growl" life="100" showDetail="true"  sticky="true" />
+
+						<p:commandButton styleClass="denunciar" 
+							 value="#{global['botao.votar']}" action="#{avMB.avaliarNoticia(VisualizarNoticiaBean.identificador)}"
+							 update="growl">
+							 <f:param ></f:param>
+						</p:commandButton> 
+							
+					</h:form>
+               
                      <!-- novo -->
                 <!-- inserir comentários -->
                 <h:form id="inserirComentario" style="margin-top: 12px;">
                     <p:panelGrid columns="1" id="formCadastroDeNoticias" styleClass="formComentario">
                         <f:facet name="header">
-                            Comente algo!
+                            <h:outputText value="#{global['comentario.titulo']}" />!
                         </f:facet>
                         <p:editor id="conteudo" height="200" width="870" value="#{ComentarioBean.comentario.conteudo}" 
                                   rendered="true" />
                     </p:panelGrid>
                     
                     
-                        <p:commandButton ajax="false" value="Comentar" id="comentar" update=":listaDeComentarios"
+                        <p:commandButton ajax="false" value="#{global['botao.comentar']}" id="comentar" update=":listaDeComentarios"
                                      styleClass="comentar" actionListener="#{ComentarioBean.inserirComentario}" icon="ui-icon-disk">
                         </p:commandButton>   
                 </h:form>
@@ -97,7 +120,7 @@ and open the template in the editor.
                 <p:dataGrid id="listaDeComentarios" var="comentarios" value="#{ComentarioBean.listarComentariosDaNoticia(VisualizarNoticiaBean.identificador)}"
                             columns="1" rows="10" paginator="true" paginatorPosition="bottom" styleClass="listaDeComentarios">
                     <f:facet name="header">
-                        Lista de comentarios
+                       <h:outputText value="#{global['comentario.lista.titulo']}" />
                     </f:facet>
 
                     <p:panel styleClass="noborder">
@@ -127,7 +150,7 @@ and open the template in the editor.
 
 
             <p:layoutUnit position="south">
-                <p>&copy; 2013 - Digital News - A sua melhor fonte de notícias!</p>
+                <p>&copy; 2013 - <h:outputText value="#{global['titulo.home']}" />!</p>
             </p:layoutUnit>
 
         </p:layout>

@@ -6,29 +6,29 @@
       xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
-	<title>Cadastro De Usurios</title>
+	<title><h:outputText value="#{global['titulo.home']}" /></title>
 </h:head> 
 <body> 
 	<p:layout fullPage="true">
 		<p:layoutUnit position="north">
-			<h1>Cadastro de Usuarios</h1>
+			<h1><h:outputText value="#{global['titulo.home']}" /></h1>
 		</p:layoutUnit>
 		
 		<p:layoutUnit position="center">
-				<h2>Digite seu login/senha para efetuar seu cadastro</h2>
+				<h2><h:outputText value="#{global['cadastro.usuario.instrucoes']}" /></h2>
 				
 				<h:form>
 				
 				<p:panelGrid columns="3" >
-					<p:outputLabel senha="login"  value="Login: ">
+					<p:outputLabel senha="login"  value="#{global.login}: ">
 						<p:inputText id="login"  value="#{userB.user.login}" required="true" />
 					</p:outputLabel>
 					
-					<p:outputLabel for="senha" value="Senha: ">
+					<p:outputLabel for="senha" value="#{global.senha}: ">
 						<p:password id="senha" value="#{userB.user.senha}" required="true" />
 					</p:outputLabel>
 					
-					<p:commandButton action="#{userB.cadastrarUsuario()}" value="Cadastrar"/>
+					<p:commandButton action="#{userB.cadastrarUsuario()}" value="#{global['botao.cadastrar']}"/>
 				</p:panelGrid>
 				
 				</h:form>
@@ -37,7 +37,7 @@
 		
 		<p:layoutUnit position="south">
 			<h:form id="cadastroForm">
-				<h:commandLink action="home" value="voltar ao login"/>
+				<h:commandLink action="home" value="#{global['link.retorno.login']}"/>
 			</h:form>
 		</p:layoutUnit>
 	

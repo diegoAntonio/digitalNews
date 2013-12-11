@@ -67,7 +67,7 @@ public class NoticiaBean {
         
         noticia.setCodigoUsuario(user.getId());
         if (fachada.inserirNoticia(noticia)) {
-            retorno = "sucesso";
+            retorno = "noticiasDoUsuario.jsf";
         } else {
             retorno = "erro";
         }
@@ -98,7 +98,11 @@ public class NoticiaBean {
         lista = fachada.listarNoticiasDenunciadas();
         return lista;
     }
-
+    
+    public String metodoTeste(){
+		return "/main.jsf";
+	}
+   
 	public Usuario getUser() {
 		return user;
 	}
@@ -106,5 +110,5 @@ public class NoticiaBean {
 	public void setUser(Usuario user) {
 		this.user = user;
 	}
-  
+	
 }

@@ -12,7 +12,7 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Digital News - A sua melhor fonte de notícias !</title>
+        <title><h:outputText value="#{global['titulo.home']}" />!</title>
         <meta name="viewport" content="width=device-width"/>
         <link rel="stylesheet" href="css/noticias.css" media="screen"></link>
 
@@ -22,9 +22,9 @@ and open the template in the editor.
             <!-- Topo Espaço para a logo-->
             <p:layoutUnit position="north">
                 <p:menubar id="menuTopo">
-                    <p:menuitem value="Notícias denunciadas" url="noticiasDenunciadas.jsf" />
-                    <p:menuitem value="Comentários" url="comentariosTodos.jsf" />
-                    <p:menuitem value="Notícias" url="noticiasTodas.jsf" />
+                    <p:menuitem value="#{global['noticias.denunciadas']}" url="noticiasDenunciadas.jsf" />
+                    <p:menuitem value="#{global['comentarios.generic']}" url="comentariosTodos.jsf" />
+                    <p:menuitem value="#{global['noticias.moderador']}" url="noticiasTodas.jsf" />
                 </p:menubar>
                 
                  <h:form id="deslogForm">
@@ -49,7 +49,7 @@ and open the template in the editor.
                             <h:outputText value="#{noticia.titulo}" styleClass="noticiaTitulo"/>
                         </p>
 
-                        <p>Publicado em:
+                        <p><h:outputText value="#{global['publicado.em']}" /> :
                             <h:outputText value="#{noticia.dataDePublicacao}">
                                 <f:convertDateTime pattern="dd/MM/yyyy" type="both" />
                             </h:outputText>
@@ -65,7 +65,7 @@ and open the template in the editor.
                         
                         <!-- novo -->
                         <p>
-                            <p:button styleClass="denunciar" outcome="denunciarNoticia" value="Denunciar" >
+                            <p:button styleClass="denunciar" outcome="denunciarNoticia" value="#{global['botao.denunciar']}" >
                                 <f:param name="codigoNoticia" value="#{noticia.identificador}"></f:param>
                             </p:button>
                         </p>
@@ -79,14 +79,14 @@ and open the template in the editor.
                 <h:form id="inserirComentario" style="margin-top: 12px;">
                     <p:panelGrid columns="1" id="formCadastroDeNoticias" styleClass="formComentario">
                         <f:facet name="header">
-                            Comente algo!
+                            <h:outputText value="#{global['comentario.titulo']}" />
                         </f:facet>
                         <p:editor id="conteudo" height="200" width="870" value="#{ComentarioBean.comentario.conteudo}" 
                                   rendered="true" />
                     </p:panelGrid>
                     
                     
-                        <p:commandButton ajax="false" value="Comentar" id="comentar" update=":listaDeComentarios"
+                        <p:commandButton ajax="false" value="#{global['botao.comentar']}" id="comentar" update=":listaDeComentarios"
                                      styleClass="comentar" actionListener="#{ComentarioBean.inserirComentario}" icon="ui-icon-disk">
                         </p:commandButton>   
                 </h:form>
@@ -96,7 +96,7 @@ and open the template in the editor.
                 <p:dataGrid id="listaDeComentarios" var="comentarios" value="#{ComentarioBean.listarComentariosDaNoticia(VisualizarNoticiaBean.identificador)}"
                             columns="1" rows="10" paginator="true" paginatorPosition="bottom" styleClass="listaDeComentarios">
                     <f:facet name="header">
-                        Lista de comentarios
+                        <h:outputText value="#{global['comentario.lista.titulo']}" />
                     </f:facet>
 
                     <p:panel styleClass="noborder">
@@ -125,7 +125,7 @@ and open the template in the editor.
             </p:layoutUnit>
 
             <p:layoutUnit position="south">
-                <p>&copy; 2013 - Digital News - A sua melhor fonte de notícias!</p>
+                <p>&copy; 2013 - <h:outputText value="#{global['titulo.home']}" />!</p>
             </p:layoutUnit>
 
         </p:layout>

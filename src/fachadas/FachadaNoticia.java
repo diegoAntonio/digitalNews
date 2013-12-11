@@ -39,6 +39,11 @@ public class FachadaNoticia {
     public List<Noticia> listarTodasAsNoticiasDoUsuario(int codigoUsuario) {
         List<Noticia> lista;
         lista = fachada.dao.listarTodasAsNoticiasDoUsuario(codigoUsuario);
+        
+        for(int i = 0;i < lista.size(); i++){
+        	corrigirAvaliacoes(lista.get(i));
+        }
+        
         return lista;
     }
     
@@ -51,6 +56,10 @@ public class FachadaNoticia {
     public List<Noticia> listarNoticiasMaisBemAvaliadas() {
         List<Noticia> lista;
         lista = fachada.dao.listarNoticiasMaisBemAvaliadas();
+        
+        for(int i = 0;i < lista.size(); i++){
+        	corrigirAvaliacoes(lista.get(i));
+        }
         return lista;
     }
     
@@ -59,7 +68,9 @@ public class FachadaNoticia {
     }
     
     public Noticia buscarNoticiaUsuarioLogado(int identificador) {
-        return (fachada.dao.buscarNoticiaUsuarioLogado(identificador));
+        Noticia n = fachada.dao.buscarNoticiaUsuarioLogado(identificador);
+        corrigirAvaliacoes(n);        
+        return n;
     }
     
     
@@ -68,10 +79,34 @@ public class FachadaNoticia {
     }
     
     public List<Noticia> listarTodasAsNoticias(){
-        return (fachada.dao.listarTodasAsNoticias());
+        List<Noticia> lista = fachada.dao.listarTodasAsNoticias();
+        
+        for(int i = 0;i < lista.size(); i++){
+        	corrigirAvaliacoes(lista.get(i));
+        }
+        
+        return lista;
     }
     
     public List<Noticia> listarNoticiasDenunciadas() {
-        return (fachada.dao.listarNoticiasDenunciadas());
+    	 List<Noticia> lista = fachada.dao.listarNoticiasDenunciadas();
+    	 
+    	 for(int i = 0;i < lista.size(); i++){
+         	corrigirAvaliacoes(lista.get(i));
+         }
+         
+         return lista;
+    }
+    
+    public boolean avaliarNoticia(int codigoNoticia,int avaliacao){
+    	return (fachada.dao.atualizarAvaliacao(codigoNoticia, avaliacao));
+    }
+    
+    private void corrigirAvaliacoes(Noticia noticia){
+    	if(noticia != null){
+	    	if(noticia.getAvaliacao() > 5){
+	    		noticia.setAvaliacao(noticia.getAvaliacao()/5);
+	    	}
+    	}
     }
 }

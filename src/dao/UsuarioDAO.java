@@ -42,7 +42,6 @@ public class UsuarioDAO {
 			state.executeUpdate();
 			
 		} catch (SQLException e ) {
-			// TODO Auto-generated catch block
 			resultado = false;
 			e.printStackTrace();
 		}
@@ -80,7 +79,6 @@ public class UsuarioDAO {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		 

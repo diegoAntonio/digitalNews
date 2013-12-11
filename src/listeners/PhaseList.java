@@ -22,20 +22,20 @@ public class PhaseList implements PhaseListener {
 	@Override
 	public void afterPhase(PhaseEvent arg0) {
 		System.out.println("Depois da fase: "
-				+ getPhaseId().toString());
+				+ arg0.getPhaseId());
 		
 	}
 
 	@Override
 	public void beforePhase(PhaseEvent arg0) {
 		System.out.println("Antes da fase: "
-				+ getPhaseId().toString());
+				+ arg0.getPhaseId());
 		
 	}
 
 	@Override
 	public PhaseId getPhaseId() {
-		return PhaseId.RESTORE_VIEW;
+		return PhaseId.ANY_PHASE;
 	}
 
 }

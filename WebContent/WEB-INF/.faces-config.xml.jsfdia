@@ -58,12 +58,12 @@
  <PROCESS-ITEM NAME="rules:" SHAPE="32,273,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
-    ID="editarNoticias::#pages#commom#noticiasEditar.jsf" NAME="output"
-    PATH="/pages/commom/noticiasEditar.jsf"
-    TARGET="rules:#pages#commom#noticiasEditar.jsf"
+    ID="editarNoticias::#pages#commom#noticiasEditar.xhtml"
+    NAME="output" PATH="/pages/commom/noticiasEditar.xhtml"
+    TARGET="rules:#pages#commom#noticiasEditar.xhtml"
     TITLE="editarNoticias" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#pages#commom#noticiasEditar.jsf"
-  PATH="/pages/commom/noticiasEditar.jsf" SHAPE="240,913,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#commom#noticiasEditar.xhtml"
+  PATH="/pages/commom/noticiasEditar.xhtml" SHAPE="240,913,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

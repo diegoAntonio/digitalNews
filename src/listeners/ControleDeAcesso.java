@@ -72,13 +72,11 @@ public class ControleDeAcesso implements PhaseListener {
 
 	@Override
 	public void beforePhase(PhaseEvent arg0) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public PhaseId getPhaseId() {
-		// TODO Auto-generated method stub
 		return PhaseId.RESTORE_VIEW;
 	}
 

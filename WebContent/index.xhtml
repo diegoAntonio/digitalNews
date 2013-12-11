@@ -12,38 +12,30 @@
       xmlns:p="http://primefaces.org/ui"
       >
     <h:head>
-        <title>Digital News - A sua melhor fonte de notícias !</title>
+        <title><h:outputText value="#{global['titulo.home']}" />!</title>
         <meta name="viewport" content="width=device-width"/>
         <link rel="stylesheet" href="noticias.css" media="screen"></link>
     </h:head>
     <h:body>
         <p:layout fullPage="true">
-             Topo Espaço para a logo
-             
-             <p:layoutUnit position="north">
-                <h1>Bem vindo ao Digital News!</h1>
-              </p:layoutUnit>
-
             <p:layoutUnit position="north">
-                <h1>Bem vindo ao Digital News!</h1>
+                <h1><h:outputText value="#{global['bem.vindo']}" /></h1>
                	 <p:menubar id="menuTopo">
                     <p:menuitem value="Login" url="/home.jsf" />
                   
                 </p:menubar>
             </p:layoutUnit>
 
-             Meio,espaço para o site 
-
             <p:layoutUnit position="center">
 <!-- 												valor anterior:NoticiaBean.listarTodasAsNoticiasDoUsuario(NoticiaBean.user.id) -->
                 <p:dataTable id="noticiasTable" value="#{visualizarNoticiaBean.buscarTodasAsNoticias()}" var="noticia">
                     <f:facet name="header">
-                        Lista de Noticias                        
+	                        <h:outputText value="#{global['noticias.lista']}" />                        
                     </f:facet>
                     
                     <p:column>
                         <f:facet name="header">
-                            Título
+                            <h:outputText value="#{global['noticias.titulo']}" />
                         </f:facet>
                         <h:outputLink value="noticiasVisualizar.jsf">
                             <h:outputText value="#{noticia.titulo}"/>
@@ -52,7 +44,7 @@
                     </p:column>
                     <p:column styleClass="data">
                         <f:facet name="header">
-                            Data de Publicação
+                            <h:outputText value="#{global['noticias.data.publicacao']}" />
                         </f:facet>
                             <h:outputText value="#{noticia.dataDePublicacao}">  
                                 <f:convertDateTime pattern="dd/MM/yyyy"/>  
@@ -60,11 +52,37 @@
                     </p:column>
                 
                 </p:dataTable>
+                <br></br>
+                <br></br>
+                
+                <p:dataTable id="melhores" value="#{noticiaBean.listarNoticiasMaisBemAvaliadas()}" var="noticia">
+               		<f:facet name="header">
+               			<h:outputText value="#{global['label.melhores']}"/>
+               		</f:facet>
+               	<p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{global['noticias.titulo']}" />
+                        </f:facet>
+                        <h:outputLink value="noticiasVisualizar.jsf">
+                            <h:outputText value="#{noticia.titulo}"/>
+                            <f:param name="codigoNoticia" value="#{noticia.identificador}"></f:param>
+                        </h:outputLink>
+                    </p:column>
+                
+                <p:column>
+                    		<f:facet name="header">
+                    			<h:outputLabel value="#{global['label.avaliacao']}" for="opGeral" />
+                    		</f:facet>
+                        <p:rating id="opGeral" value="#{noticia.avaliacao}" readonly="true"/>  
+                        <br></br>
+                
+                    </p:column>
+                </p:dataTable>
                     
             </p:layoutUnit>
 
             <p:layoutUnit position="south">
-                <p>&copy; 2013 - Digital News - A sua melhor fonte de notícias!</p>
+                <p>&copy; 2013 - <h:outputText value="#{global['bem.vindo']}" />!</p>
             </p:layoutUnit>
 
         </p:layout>       

@@ -12,7 +12,7 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui"
       >
     <h:head>
-        <title>Digital News - A sua melhor fonte de notícias !</title>
+        <title><h:outputText value="#{global['titulo.home']}" />!</title>
         <meta name="viewport" content="width=device-width"/>
         <link rel="stylesheet" href="css/noticias.css" media="screen"></link>
 
@@ -28,7 +28,7 @@ and open the template in the editor.
             </f:metadata>
             
             <p:layoutUnit position="north">
-                <h1>Bem vindo ao Digital News!</h1>
+                <h1><h:outputText value="#{global['bem.vindo']}" />!</h1>
               </p:layoutUnit>
 
             <!-- Meio,espaço para o site -->
@@ -40,14 +40,14 @@ and open the template in the editor.
                             <h:outputText value="#{noticia.titulo}" styleClass="noticiaTitulo"/>
                         </p>
 
-                        <p>Publicado em:
+                        <p><h:outputText value="#{global['noticias.publicadas.voce']}" />:
                             <h:outputText value="#{noticia.dataDePublicacao}">
                                 <f:convertDateTime pattern="dd/MM/yyyy" type="both" />
                             </h:outputText>
                         </p>
 
 
-                        <p:rating value="#{AvaliacaoBean.avaliacao}" stars="5" cancel="false" readonly="true"></p:rating>
+                        <p:rating value="#{noticia.avaliacao}" stars="5" cancel="false" readonly="true"/>
                         <br></br>
 
                         <p class="size">
@@ -61,7 +61,7 @@ and open the template in the editor.
                 <p:dataGrid id="listaDeComentarios" var="comentarios" value="#{ComentarioBean.listarComentariosDaNoticia(VisualizarNoticiaBean.identificador)}"
                             columns="1" rows="10" paginator="true" paginatorPosition="bottom" styleClass="listaDeComentarios">
                     <f:facet name="header">
-                        Lista de comentarios
+                        <h:outputText value="#{global['comentario.lista.titulo']}" />
                     </f:facet>
 
                     <p:panel styleClass="noborder">
@@ -91,7 +91,7 @@ and open the template in the editor.
 
 
             <p:layoutUnit position="south">
-                <p>&copy; 2013 - Digital News - A sua melhor fonte de notícias!</p>
+                <p>&copy; 2013 - <h:outputText value="#{global['titulo.home']}" />!</p>
             </p:layoutUnit>
 
         </p:layout>

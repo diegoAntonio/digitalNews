@@ -12,22 +12,21 @@
       xmlns:p="http://primefaces.org/ui"
       >
     <h:head>
-        <title>Digital News - A sua melhor fonte de notícias !</title>
+        <title><h:outputText value="#{global['titulo.home']}" /></title>
         <meta name="viewport" content="width=device-width"/>
         <link rel="stylesheet" href="noticias.css" media="screen"></link>
     </h:head>
     <h:body>
         <p:layout fullPage="true">
-             Topo Espaço para a logo
 
             <p:layoutUnit position="north">
-                <h1>Bem vindo ao Digital News!</h1>
+                <h1><h:outputText value="#{global['bem.vindo']}" /></h1>
                	 <p:menubar id="menuTopo">
-                    <p:menuitem value="Home Page" url="/pages/commom/main.jsf" />
-                    <p:menuitem value="" url="/pages/commom/pnoticiasCadastro.jsf" />
-                    <p:menuitem value="Notícias" url="/pages/commom/noticias.jsf" />
-                    <p:menuitem value="Melhores Notícias" url="/pages/commom/melhores.jsf" />
-                    <p:menuitem value="Noticias publicadas por você" url="/pages/commom/noticiasDoUsuario.jsf" />
+                    <p:menuitem value="#{global['noticias.home']}" url="/pages/commom/main.jsf" />
+                    <p:menuitem value="#{global['cadastrar.noticia']}" url="/pages/commom/pnoticiasCadastro.jsf" />
+                    <p:menuitem value="#{global['noticias.generic']}" url="/pages/commom/noticias.jsf" />
+                    <p:menuitem value="#{global['noticias.melhores']}" url="/pages/commom/melhores.jsf" />
+                    <p:menuitem value="#{global['noticias.publicadas.voce']}" url="/pages/commom/noticiasDoUsuario.jsf" />
                 </p:menubar>
                 
                 <h:form id="deslogForm">
@@ -35,18 +34,17 @@
 				</h:form>
             </p:layoutUnit>
 
-             Meio,espaço para o site 
 
             <p:layoutUnit position="center">
 <!-- 												valor anterior:NoticiaBean.listarTodasAsNoticiasDoUsuario(NoticiaBean.user.id) -->
                 <p:dataTable id="noticiasTable" value="#{visualizarNoticiaBean.buscarTodasAsNoticias()}" var="noticia">
                     <f:facet name="header">
-                        Lista de Noticias                        
+                       <h:outputText value="#{global['noticias.lista']}" />                     
                     </f:facet>
                     
                     <p:column>
                         <f:facet name="header">
-                            Título
+                            <h:outputText value="#{global['noticias.titulo']}" /> 
                         </f:facet>
                         <h:outputLink value="noticiasVisualizar.jsf">
                             <h:outputText value="#{noticia.titulo}"/>
@@ -55,7 +53,7 @@
                     </p:column>
                     <p:column styleClass="data">
                         <f:facet name="header">
-                            Data de Publicação
+                           <h:outputText value="#{global['noticias.data.publicacao']}" /> 
                         </f:facet>
                             <h:outputText value="#{noticia.dataDePublicacao}">  
                                 <f:convertDateTime pattern="dd/MM/yyyy"/>  
@@ -63,7 +61,7 @@
                     </p:column>
                     <p:column>
                         <f:facet name="header">
-                            Opções
+                            <h:outputText value="#{global['noticias.opcoes']}" /> 
                         </f:facet>
                         
                         <p:button outcome="deletar" value="Excluir" icon="ui-icon-close">
@@ -86,7 +84,7 @@
             </p:layoutUnit>
 
             <p:layoutUnit position="south">
-                <p>&copy; 2013 - Digital News - A sua melhor fonte de notícias!</p>
+                <p>&copy; 2013 - <h:outputText value="#{global['titulo.home']}" />!</p>
             </p:layoutUnit>
 
         </p:layout>       

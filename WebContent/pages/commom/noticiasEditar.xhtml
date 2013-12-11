@@ -6,7 +6,7 @@
       xmlns:p="http://primefaces.org/ui"
       >
     <h:head>
-        <title>Digital News - A sua melhor fonte de notícias !</title>
+        <title><h:outputText value="#{global['titulo.home']}" />!</title>
         <meta name="viewport" content="width=device-width"/>
         <link rel="stylesheet" href="css/noticias.css" media="screen"></link>
     </h:head>
@@ -19,7 +19,7 @@
             </f:metadata>
 
             <p:layoutUnit position="north">
-                <h1>Bem vindo ao Digital News!</h1>
+                <h1><h:outputText value="#{global['bem.vindo']}" /></h1>
                 <h:form id="deslogForm">
 					<h:commandLink action="#{LoginMB.deslogar()}" value="Sair" />
 				</h:form>
@@ -30,26 +30,26 @@
             <p:layoutUnit position="center">
 
                 <p:menubar id="menu">
-                    <p:menuitem value="Cadastrar" url="noticiasCadastro.jsf" />
-                    <p:menuitem value="Notícias Bloqueadas" url="noticiasBloqueadas.jsf" />
-                    <p:menuitem value="Noticias publicadas por você" url="noticiasDoUsuario.jsf" />
+                    <p:menuitem value="#{global['cadastrar.noticia']}" url="noticiasCadastro.jsf" />
+                    <p:menuitem value="#{global['noticias.bloqueadas']}" url="noticiasBloqueadas.jsf" />
+                    <p:menuitem value="#{global['noticias.publicadas.voce']}" url="noticiasDoUsuario.jsf" />
                 </p:menubar>  
 
-                <p>Edição da Notícia</p>
+                <p></p>
 
                 <h:form id="formulario">
                     <p:panelGrid columns="2" id="formCadastroDeNoticias" styleClass="formCad">
                         
-                        <p:outputLabel for="titulo" value="Título:"></p:outputLabel>
+                        <p:outputLabel for="titulo" value="#{global['noticias.titulo']}:"></p:outputLabel>
                         <p:inputText id="titulo" value="#{EditarNoticiaBean.noticiaEdicao.titulo}" required="true" size="60">
                             <f:validateLength minimum="10" maximum="100" /> 
                         </p:inputText>
 
 
-                        <p:outputLabel for="conteudo" value="Conteúdo:"></p:outputLabel>
+                        <p:outputLabel for="conteudo" value="#{global['noticia.conteudo']}:"></p:outputLabel>
                         <p:editor id="conteudo" height="300" width="530" value="#{EditarNoticiaBean.noticiaEdicao.conteudo}" rendered="true" />
 
-                        <p:outputLabel for="topico" value="Tópico:"></p:outputLabel>
+                        <p:outputLabel for="topico" value="#{global['noticia.topico']}:"></p:outputLabel>
                         <p:selectOneMenu id="topico" value="#{NoticiaBean.noticia.codigoTopico}" styleClass="tamanho">
                             <f:selectItem itemLabel="Selecione um ..." itemValue="" />
                             <f:selectItems value="#{TopicoBean.listaDeTopicos()}" 
@@ -60,14 +60,14 @@
                     
                     </p:panelGrid>
                     
-                    <p:commandButton action="#{EditarNoticiaBean.editarNoticia}" value="Registrar modificações" />
+                    <p:commandButton action="#{EditarNoticiaBean.editarNoticia}" value="#{global['botao.editar']}" />
                     
                 </h:form>
 
             </p:layoutUnit>
 
             <p:layoutUnit position="south">
-                <p>&copy; 2013 - Digital News - A sua melhor fonte de notícias!</p>
+                <p>&copy; 2013 -<h:outputText value="#{global['titulo.home']}" />!</p>
             </p:layoutUnit>
 
         </p:layout>       

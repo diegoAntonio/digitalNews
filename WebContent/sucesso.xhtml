@@ -10,14 +10,14 @@
 	<p:layout fullPage="true">
 		<p:layoutUnit position="center">
 			<p:outputPanel>
-				<h1>Sucesso!</h1>
+				<h1><h:outputText value="#{errorMsg['sucesso.cadastro']}" />!</h1>
 				
 			</p:outputPanel>
 		</p:layoutUnit>
 		
 		<p:layoutUnit position="south">
 			<h:form id="cadastroForm">
-				<h:commandLink action="home" value="voltar ao login"/>
+				<h:commandLink action="home" value="#{global['link.retorno.login']}"/>
 			</h:form>
 		</p:layoutUnit>
 	</p:layout>

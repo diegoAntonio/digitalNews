@@ -21,7 +21,7 @@ and open the template in the editor.
             <!-- Topo Espaço para a logo-->
 
             <p:layoutUnit position="north">
-                <h1>Bem vindo ao Digital News!</h1>
+                <h1><h:outputText value="#{global['bem.vindo.moderador']}" />!</h1>
             </p:layoutUnit>
 
             <!-- Meio,espaço para o site -->
@@ -38,7 +38,7 @@ and open the template in the editor.
                 <p:dataGrid id="listaDeComentarios" var="comentarios" value="#{ComentarioBean.listarTodosOsComentarios()}"
                             columns="1" rows="10" paginator="true" paginatorPosition="bottom" styleClass="listaDeComentarios">
                     <f:facet name="header">
-                        Lista de comentarios
+                        <h:outputText value="#{global['comentario.lista.titulo']}" />
                     </f:facet>
 
                     <p:panel styleClass="noborder">
@@ -63,7 +63,7 @@ and open the template in the editor.
             </p:layoutUnit>
 
             <p:layoutUnit position="south">
-                <p>&copy; 2013 - Digital News - A sua melhor fonte de notícias!</p>
+                <p>&copy; 2013 - <h:outputText value="#{global['titulo.home']}" />!</p>
             </p:layoutUnit>
 
         </p:layout>       

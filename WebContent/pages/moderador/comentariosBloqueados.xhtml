@@ -12,7 +12,7 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui"
       >
     <h:head>
-        <title>Digital News - A sua melhor fonte de notícias !</title>
+        <title><h:outputText value="#{global['titulo.home']}" />!</title>
         <meta name="viewport" content="width=device-width"/>
         <link rel="stylesheet" href="css/noticias.css" media="screen"></link>
     </h:head>
@@ -21,7 +21,7 @@ and open the template in the editor.
             <!-- Topo Espaço para a logo-->
 
             <p:layoutUnit position="north">
-                <h1>Bem vindo ao Digital News!</h1>
+                <h1><h:outputText value="#{global['bem.vindo.moderador']}" /></h1>
             </p:layoutUnit>
 
             <!-- Meio,espaço para o site -->
@@ -29,16 +29,16 @@ and open the template in the editor.
             <p:layoutUnit position="center">
 
                 <p:menubar id="menu">
-                    <p:menuitem value="Notícias denunciadas" url="noticiasDenunciadas.xhtml" />
-                    <p:menuitem value="Comentários" url="comentariosTodos.xhtml" />
-                    <p:menuitem value="Notícias" url="noticiasTodas.xhtml" />
+                    <p:menuitem value="#{global['noticias.denunciadas']}" url="noticiasDenunciadas.xhtml" />
+                    <p:menuitem value="#{global['comentarios.generic']}" url="comentariosTodos.xhtml" />
+                    <p:menuitem value="#{global['noticias.moderador']}" url="noticiasTodas.xhtml" />
                 </p:menubar>  
 
                 <!-- listar os comentarios dessa noticia -->
                 <p:dataGrid id="listaDeComentarios" var="comentarios" value="#{ComentarioBean.listarTodosOsComentariosBloqueados()}"
                             columns="1" rows="10" paginator="true" paginatorPosition="bottom" styleClass="listaDeComentarios">
                     <f:facet name="header">
-                        Lista de comentarios bloqueados
+                        <h:outputText value="#{global['comentarios.bloqueados.lista.titulo']}" />
                     </f:facet>
 
                     <p:panel styleClass="noborder">
@@ -63,7 +63,7 @@ and open the template in the editor.
             </p:layoutUnit>
 
             <p:layoutUnit position="south">
-                <p>&copy; 2013 - Digital News - A sua melhor fonte de notícias!</p>
+                <p>&copy; 2013 - <h:outputText value="#{global['titulo.home']}" />!</p>
             </p:layoutUnit>
 
         </p:layout>       

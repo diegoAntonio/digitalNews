@@ -10,7 +10,7 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
-        <title>Digital News - A sua melhor fonte de notícias !</title>
+        <title><h:outputText value="#{global['titulo.home']}" /></title>
         <meta name="viewport" content="width=device-width"/>
         <f:event type="preRenderView" listener="#{Redirecionamento.RedirecionarNoticias}"></f:event>
     </h:head>
