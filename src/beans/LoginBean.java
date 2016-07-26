@@ -17,7 +17,7 @@ import model.Usuario;
  * @author Diego
  * Managed Bean que realiza o processo do login do usuario.
  * Possui um usuario para utilizar no processo
- * e dois métodos logar e deslogar
+ * e dois mï¿½todos logar e deslogar
  */
 
 @ManagedBean(name="LoginMB")
@@ -36,10 +36,10 @@ public class LoginBean {
 	 * @author Diego
 	 * @return resultado
 	 *
-	 * Método que faz o procedimento de logar,
-	 * primeiro checa se o usuario digitou valores válidos 
+	 * Mï¿½todo que faz o procedimento de logar,
+	 * primeiro checa se o usuario digitou valores vï¿½lidos 
 	 * e solicita a fachada para que autentique,
-	 * é responsável pelas mensagens de erro que voltarão à página de login
+	 * ï¿½ responsï¿½vel pelas mensagens de erro que voltarï¿½o ï¿½ pï¿½gina de login
 	 * em casos de erros.
 	 */
 	public String logarUsuario(){
@@ -83,7 +83,7 @@ public class LoginBean {
 						break;
 						
 						default:
-						 resultado += "/commom/main.xhtml";
+						 resultado += "/commom/noticias.xhtml";
 					}
 			}else{
 				//carregar msg de falha no login/senha
@@ -106,8 +106,8 @@ public class LoginBean {
 	 * @author Diego
 	 * @return retorno
 	 * 
-	 *Método que faz o processo de deslogar.
-	 *Basicamente retira o usuario da sessão e redireciona pro home.
+	 *Mï¿½todo que faz o processo de deslogar.
+	 *Basicamente retira o usuario da sessï¿½o e redireciona pro home.
 	 */
 	public String deslogar(){
 		String retorno = "loginP";
@@ -122,7 +122,7 @@ public class LoginBean {
 	
 	
 	/**
-	 * Método que faz a carga do ResourceBundle de onde as mensagens de erro virão
+	 * Mï¿½todo que faz a carga do ResourceBundle de onde as mensagens de erro virï¿½o
 	 * Ele pega o bundle e simplesmente retorna.
 	 * 
 	 * @return bundle
@@ -151,7 +151,7 @@ public class LoginBean {
 	 * @param codigoDaChave
 	 * @return msg
 	 * 
-	 * Método que carrega a mensagem apropriada de acordo com
+	 * Mï¿½todo que carrega a mensagem apropriada de acordo com
 	 * o erro que aconteceu.
 	 */
 	private String getKey(String codigoDaChave){
