@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project-modules id="moduleCoreId" project-version="2.0">
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
 	<wb-module deploy-name="digitalNews">
 		<property name="context-root" value="digitalNews"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
 		<wb-resource deploy-path="/" source-path="src/main/webapp"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/diegoferreira/.gradle/caches/modules-2/files-2.1/org.primefaces/primefaces/4.0/9084cd23acd33ea4ef4eadbcb8788a22af361c07/primefaces-4.0.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
