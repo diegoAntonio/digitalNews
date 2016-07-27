@@ -9,9 +9,7 @@ build
 .classpath
 .project
 .settings
-.checkstyle
 /WEB-INF
-/src/main/resources/META-INF/persistence.xml 
 
 # Text editors
 *.swp
