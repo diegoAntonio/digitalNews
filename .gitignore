@@ -3,6 +3,7 @@
 build
 .project
 .gradle
+.gradle/
 
 # Eclipse configuration
 .classpath
