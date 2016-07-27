@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="digitalNews">
-        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="digitalNews"/>
-        <property name="java-output-path" value="/digitalNews/build/classes"/>
-    </wb-module>
+<project-modules id="moduleCoreId" project-version="2.0">
+	<wb-module deploy-name="digitalNews">
+		<property name="context-root" value="digitalNews"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
+		<wb-resource deploy-path="/" source-path="src/main/webapp"/>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/diegoferreira/.gradle/caches/modules-2/files-2.1/org.primefaces/primefaces/4.0/9084cd23acd33ea4ef4eadbcb8788a22af361c07/primefaces-4.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/diegoferreira/.gradle/caches/modules-2/files-2.1/com.sun.faces/jsf-api/2.0.11-04/bd365fd58cb0fe8c94dee3889b9fc4ee8dfcd80/jsf-api-2.0.11-04.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/diegoferreira/.gradle/caches/modules-2/files-2.1/com.sun.faces/jsf-impl/2.0.11-04/c3fb0095b8e2370976090a8848a5380349313051/jsf-impl-2.0.11-04.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/diegoferreira/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/74aca283cd4f4b4f3e425f5820cda58f44409547/jstl-1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/diegoferreira/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.0.1/6bf0ebb7efd993e222fc1112377b5e92a13b38dd/javax.servlet-api-3.0.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+	</wb-module>
 </project-modules>

@@ -1,0 +1,35 @@
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8 
+
+repositories {
+  	mavenCentral()
+	maven {url 'http://repository.pentaho.org/content/repositories/pentaho-public-release-repos/'}
+}
+
+dependencies {
+   // Primefaces
+  compile 'org.primefaces:primefaces:4.0'
+
+  // JSF
+  compile 'com.sun.faces:jsf-api:2.0.11-04'
+  compile 'com.sun.faces:jsf-impl:2.0.11-04'
+  
+  //Tema do Vader Resolver
+// compile 'org.primefaces.themes:vader:1.0.9'
+   //Jstl
+   compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+
+  compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+}
+
+war {
+    baseName = 'digitalNews'
+}
+
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.9'
+}
