@@ -1,5 +1,6 @@
 apply plugin: 'war'
 apply plugin: 'eclipse-wtp'
+apply plugin: 'jacoco'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8 
@@ -35,6 +36,18 @@ war {
     baseName = 'digitalNews'
 }
 
+jacoco {
+    toolVersion = "0.7.6.201602180812"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled true
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}
 
 task wrapper(type: Wrapper) {
   gradleVersion = '2.9'
