@@ -24,7 +24,7 @@ public class DAO {
 	 */
 	public static void iniciar(){
 		String stringDeConexao = "jdbc:mysql://localhost/";
-		String banco = "projetoweb3";
+		String banco = "digitalNews";
 		String usuario = "root" ;
 		String senha = "12345";
 		
