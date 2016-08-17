@@ -3,9 +3,10 @@ package br.dantonio808.beans;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 
 import br.dantonio808.fachadas.FachadaUsuario;
@@ -20,7 +21,8 @@ import br.dantonio808.model.Usuario;
  * e dois m�todos logar e deslogar
  */
 
-@ManagedBean(name="LoginMB")
+@Named(value="LoginMB")
+@RequestScoped
 public class LoginBean {
 	private Usuario user;
 	private ResourceBundle bundle;
