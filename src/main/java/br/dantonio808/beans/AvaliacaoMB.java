@@ -3,13 +3,15 @@ package br.dantonio808.beans;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 import br.dantonio808.fachadas.FachadaNoticia;
 
-@ManagedBean(name="avMB")
+@Named(value="avMB")
+@RequestScoped
 public class AvaliacaoMB {
 	private int avaliacao;
 	private ResourceBundle bundle;

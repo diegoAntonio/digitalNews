@@ -1,6 +1,7 @@
 package br.dantonio808.beans;
 
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
 import br.dantonio808.model.Usuario;
 
@@ -10,7 +11,8 @@ import br.dantonio808.model.Usuario;
  *	Bean que atende �s solicita��es do admin como cadastrar novos usuarios
  *	e cadastro/listar t�picos.
  */
-@ManagedBean(name="admMB")
+@Named(value="admMB")
+@RequestScoped
 public class AdminBean {
 	private Usuario admin;//usuario que representa o pr�prio admin
 	private String nomeTopico;//String para o novo t�pico

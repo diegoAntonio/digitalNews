@@ -1,6 +1,7 @@
 package br.dantonio808.beans;
 
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
 import br.dantonio808.fachadas.FachadaUsuario;
 import br.dantonio808.model.Usuario;
@@ -14,7 +15,8 @@ import br.dantonio808.model.Usuario;
  * a fachada que insere os dados no banco.
  * 
  */
-@ManagedBean(name="userB")
+@Named(value="userB")
+@RequestScoped
 public class UsuarioBean {
 	private Usuario user;//usuario que representa o usuario do sistema.
 	private FachadaUsuario f;//fachada que ir� inserir os dados no banco
