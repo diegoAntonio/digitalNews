@@ -1,9 +1,10 @@
 package br.dantonio808.beans;
 
 import java.util.List;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+
+import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 
 import br.dantonio808.fachadas.FachadaComentario;
@@ -14,7 +15,7 @@ import br.dantonio808.model.Usuario;
  *
  * @author Andy
  */
-@ManagedBean
+@Named
 @RequestScoped
 public class ComentarioBean {
 

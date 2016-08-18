@@ -1,18 +1,18 @@
 package br.dantonio808.beans;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import java.util.List;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
 import br.dantonio808.fachadas.FachadaTopico;
 import br.dantonio808.model.Topico;
-
-import java.util.List;
 
 /**
  *
  * @author Andy
  */
-@ManagedBean
+@Named
 @RequestScoped
 public class TopicoBean {
         

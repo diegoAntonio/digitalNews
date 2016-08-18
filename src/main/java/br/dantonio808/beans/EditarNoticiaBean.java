@@ -1,8 +1,9 @@
 package br.dantonio808.beans;
 
 import java.sql.SQLException;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
 import br.dantonio808.fachadas.FachadaNoticia;
 import br.dantonio808.model.Noticia;
@@ -11,7 +12,7 @@ import br.dantonio808.model.Noticia;
  *
  * @author Andy
  */
-@ManagedBean
+@Named
 @RequestScoped
 public class EditarNoticiaBean {
 

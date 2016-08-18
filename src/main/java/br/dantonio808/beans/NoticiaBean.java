@@ -1,8 +1,11 @@
 package br.dantonio808.beans;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 
 import br.dantonio808.fachadas.FachadaNoticia;
@@ -10,14 +13,11 @@ import br.dantonio808.model.Noticia;
 import br.dantonio808.model.Topico;
 import br.dantonio808.model.Usuario;
 
-import java.sql.SQLException;
-import java.util.List;
-
 /**
  *
  * @author Andy
  */
-@ManagedBean
+@Named
 @RequestScoped
 public class NoticiaBean {
 
