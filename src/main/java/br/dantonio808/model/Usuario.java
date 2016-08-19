@@ -1,15 +1,24 @@
 package br.dantonio808.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author Diego
  *	Classe que representa o usu�rio no sistema.
  */
+@Entity
+@Table(name="Usuarios")
 public class Usuario {
+		@Id
+		@GeneratedValue(strategy=GenerationType.AUTO)
+		private int id;
 		private String login;//represena o usuario no sistema
 		private String senha;//representa a senha do usuario
 		private int tipo;//representa o tipo do usuario no sistema.
-		private int id;
 		
 		/*Construtor Default*/
 		public Usuario(){
